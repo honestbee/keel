@@ -3,12 +3,13 @@ package k8s
 import (
 	"time"
 
-	"github.com/keel-hq/keel/internal/workgroup"
+	"github.com/honestbee/keel/internal/workgroup"
 	"github.com/sirupsen/logrus"
 
-	apps_v1 "k8s.io/api/apps/v1"
+	apps_v1 "k8s.io/api/apps/v1beta1"
 	v1beta1 "k8s.io/api/batch/v1beta1"
 	"k8s.io/api/core/v1"
+	extensions "k8s.io/api/extensions/v1beta1"
 
 	"k8s.io/apimachinery/pkg/fields"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -28,7 +29,7 @@ func WatchStatefulSets(g *workgroup.Group, client *kubernetes.Clientset, log log
 
 // WatchDaemonSets creates a SharedInformer for apps/v1.DaemonSet and registers it with g.
 func WatchDaemonSets(g *workgroup.Group, client *kubernetes.Clientset, log logrus.FieldLogger, rs ...cache.ResourceEventHandler) {
-	watch(g, client.AppsV1().RESTClient(), log, "daemonsets", new(apps_v1.DaemonSet), rs...)
+	watch(g, client.AppsV1().RESTClient(), log, "daemonsets", new(extensions.DaemonSet), rs...)
 }
 
 // WatchCronJobs creates a SharedInformer for v1beta1.CronJob and registers it with g.

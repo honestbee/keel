@@ -15,11 +15,11 @@ import (
 	"github.com/keel-hq/keel/bot"
 	"github.com/keel-hq/keel/cache/memory"
 
+	"github.com/honestbee/keel/internal/k8s"
+	"github.com/honestbee/keel/internal/workgroup"
 	"github.com/keel-hq/keel/constants"
 	"github.com/keel-hq/keel/extension/credentialshelper"
 	"github.com/keel-hq/keel/extension/notification"
-	"github.com/keel-hq/keel/internal/k8s"
-	"github.com/keel-hq/keel/internal/workgroup"
 	"github.com/keel-hq/keel/provider"
 	"github.com/keel-hq/keel/provider/helm"
 	"github.com/keel-hq/keel/provider/kubernetes"
