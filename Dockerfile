@@ -1,7 +1,7 @@
 FROM golang:1.10.3
-COPY . /go/src/github.com/keel-hq/keel
-WORKDIR /go/src/github.com/keel-hq/keel
-RUN make install
+COPY . /go/src/keel
+WORKDIR /go/src/keel
+RUN go build -v -o /go/bin/keel
 
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
